@@ -1,0 +1,44 @@
+Install Python 3.11.x (good compatibility with most scientific packages)
+
+✅ Check “Add Python to PATH”
+✅ Choose “Install for all users” (optional but cleaner)
+
+python --version
+where python
+	Python 3.11.x C:\Users\...\Python311\python.exe
+	
+cd "C:\Users\Howfishy\Documents\0. tidy3d"
+python -m venv venv
+venv\Scripts\activate
+	# for first time
+	Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+	.\venv\Scripts\Activate.ps1
+
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+pip list
+
+# install kernel
+python -m ipykernel install --user --name tidy3d-venv
+
+
+# For next few workflows
+cd "C:\Users\Howfishy\Documents\0. tidy3d"
+venv\Scripts\activate
+jupyter lab
+	Kernel → Change Kernel → tidy3d-venv
+
+
+
+start.bat drop into project root (C:\Users\Howfishy\Documents\0. tidy3d) to automate your workflow
+
+@echo off
+cd /d "C:\Users\Howfishy\Documents\0. tidy3d"
+
+REM Activate virtual environment
+call venv\Scripts\activate
+
+REM Launch JupyterLab
+jupyter lab
+
+pause
